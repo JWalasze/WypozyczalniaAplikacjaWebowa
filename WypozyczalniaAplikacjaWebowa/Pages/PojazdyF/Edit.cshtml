@@ -1,0 +1,45 @@
+﻿@page
+@model WypozyczalniaAplikacjaWebowa.Pages.PojazdyF.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Pojazd</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Pojazd.IdKategoriiPojazdu" class="control-label"></label>
+                <select asp-for="Pojazd.IdKategoriiPojazdu" class="form-control" asp-items="ViewBag.IdKategoriiPojazdu"></select>
+                <span asp-validation-for="Pojazd.IdKategoriiPojazdu" class="text-danger"></span>
+            </div>
+            <input type="hidden" asp-for="Pojazd.IdPojazdu" />
+            <div class="form-group">
+                <label asp-for="Pojazd.Status" class="control-label"></label>
+                <input asp-for="Pojazd.Status" class="form-control" />
+                <span asp-validation-for="Pojazd.Status" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Pojazd.Usterki" class="control-label"></label>
+                <input asp-for="Pojazd.Usterki" class="form-control" />
+                <span asp-validation-for="Pojazd.Usterki" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
